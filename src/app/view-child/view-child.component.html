@@ -1,0 +1,8 @@
+<h3>***** Template variables & ViewChild decorator section</h3>
+<!-- Display the name using template variable -->
+<p>Hello, {{inputRef.value}}</p>
+
+<label>Name: </label>
+<input #inputRef [value]="name" (keyup)="name = inputRef.value">
+
+<h3>*****</h3>
