@@ -7,6 +7,8 @@ import {FormsModule} from "@angular/forms";
 import {ChildComponent} from './child/child.component';
 import {UserComponent} from './user/user.component';
 import {NamePipe} from "./pipes/name.pipe";
+import {AgeDirective} from "./directives/age.directive";
+import { LanguagesComponent } from './languages/languages.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import {NamePipe} from "./pipes/name.pipe";
     HelloComponent,
     ChildComponent,
     UserComponent,
-    NamePipe
+    NamePipe,
+    AgeDirective,
+    LanguagesComponent
   ],
   imports: [
     BrowserModule,
