@@ -5,12 +5,16 @@ import {AppComponent} from './app.component';
 import {HelloComponent} from './hello/hello.component';
 import {FormsModule} from "@angular/forms";
 import {ChildComponent} from './child/child.component';
+import {UserComponent} from './user/user.component';
+import {NamePipe} from "./pipes/name.pipe";
 
 @NgModule({
   declarations: [
     AppComponent,
     HelloComponent,
-    ChildComponent
+    ChildComponent,
+    UserComponent,
+    NamePipe
   ],
   imports: [
     BrowserModule,
