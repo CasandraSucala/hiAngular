@@ -11,6 +11,7 @@ import {AgeDirective} from "./directives/age.directive";
 import { LanguagesComponent } from './languages/languages.component';
 import { ViewChildComponent } from './view-child/view-child.component';
 import { AngularComponent } from './angular/angular.component';
+import { LifecycleComponent } from './lifecycle/lifecycle.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AngularComponent } from './angular/angular.component';
     AgeDirective,
     LanguagesComponent,
     ViewChildComponent,
-    AngularComponent
+    AngularComponent,
+    LifecycleComponent
   ],
   imports: [
     BrowserModule,
