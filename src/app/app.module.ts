@@ -8,10 +8,11 @@ import {ChildComponent} from './child/child.component';
 import {UserComponent} from './user/user.component';
 import {NamePipe} from "./pipes/name.pipe";
 import {AgeDirective} from "./directives/age.directive";
-import { LanguagesComponent } from './languages/languages.component';
-import { ViewChildComponent } from './view-child/view-child.component';
-import { AngularComponent } from './angular/angular.component';
-import { LifecycleComponent } from './lifecycle/lifecycle.component';
+import {LanguagesComponent} from './languages/languages.component';
+import {ViewChildComponent} from './view-child/view-child.component';
+import {AngularComponent} from './angular/angular.component';
+import {LifecycleComponent} from './lifecycle/lifecycle.component';
+import {NotificationComponent} from "./notification/notification.component";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { LifecycleComponent } from './lifecycle/lifecycle.component';
     LanguagesComponent,
     ViewChildComponent,
     AngularComponent,
-    LifecycleComponent
+    LifecycleComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
