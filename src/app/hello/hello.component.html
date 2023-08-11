@@ -1,0 +1,28 @@
+<h3>***** Data binding section *****</h3>
+<!--********* one-way binding *********-->
+<!-- Display helloMessage using *string interpolation* -->
+<div class="hello-wrapper">
+  <span>{{helloMessage}}</span>
+  =
+  <!-- Display helloMessage using *property binding* -->
+  <span [textContent]="helloMessage"></span>
+
+  <!-- *Event binding* -->
+  <div>
+    <button (click)="helloMessage = 'Hello'">Say Hello</button>
+    =
+    <button (click)="onClick()">Say Hi</button>
+  </div>
+  <hr>
+  <!--********* 2-way binding *********-->
+  <div>
+    <label>Your message (2-way binging the hard way): </label>
+    <input [value]="helloMessage" #input (keyup)="helloMessage = input.value">
+  </div>
+  <div>
+    <!-- Simplify 2-way binding using ngModel (don't forget to import FormsModule in the appModule) -->
+    <label>Your message (2-way binding using ngModel): </label>
+    <input [(ngModel)]="helloMessage">
+  </div>
+</div>
+<h3>*****</h3>

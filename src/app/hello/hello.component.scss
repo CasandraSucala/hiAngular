@@ -1,0 +1,6 @@
+.hello-wrapper {
+
+  & > * {
+    margin: 2%;
+  }
+}
