@@ -4,6 +4,12 @@
 
 <div class="content-wrapper">
   <hr>
+  <!-- Data binding -->
   <app-hello></app-hello>
+  <hr>
+  <!--  @Input & @Output-->
+  <app-child [appTitle]="title"
+             (titleChanged)="onTitleChanged($event)">
+  </app-child>
   <hr>
 </div>
