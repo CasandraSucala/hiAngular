@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {NotificationService} from "./notification/notification.service";
 
 @Component({
   selector: 'app-root',
@@ -7,16 +6,9 @@ import {NotificationService} from "./notification/notification.service";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title: string = 'Hello Angular';
-
-  constructor(private notificationService: NotificationService) {
-  }
+  title = 'Hello Angular';
 
   onTitleChanged(newTitle: string): void {
     this.title = newTitle;
-  }
-
-  onNotify(): void {
-    this.notificationService.showNotification('Notification from AppComponent');
   }
 }
