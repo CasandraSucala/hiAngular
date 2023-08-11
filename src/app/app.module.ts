@@ -10,6 +10,7 @@ import {NamePipe} from "./pipes/name.pipe";
 import {AgeDirective} from "./directives/age.directive";
 import { LanguagesComponent } from './languages/languages.component';
 import { ViewChildComponent } from './view-child/view-child.component';
+import { AngularComponent } from './angular/angular.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ViewChildComponent } from './view-child/view-child.component';
     NamePipe,
     AgeDirective,
     LanguagesComponent,
-    ViewChildComponent
+    ViewChildComponent,
+    AngularComponent
   ],
   imports: [
     BrowserModule,
