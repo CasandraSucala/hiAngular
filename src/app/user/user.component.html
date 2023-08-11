@@ -1,0 +1,18 @@
+<h3>***** Pipes section *****</h3>
+
+<div *ngIf="user.name as name">
+  <p>Last Name: {{name.lastName | uppercase}}</p>
+  <p>First Name: {{name.firstName | titlecase}}</p>
+  <!--  the order matters: -->
+  <p>Middle Name: {{name.middleName | lowercase | titlecase}}</p>
+
+  <p>Name: {{name | name: 'long'}}</p>
+</div>
+
+<p>Birthday: {{user.birthday | date: 'short'}}</p>
+
+<!--The custom directive: AgeDirective in practice-->
+<label>Age: </label>
+<input age>
+
+<h3>*****</h3>

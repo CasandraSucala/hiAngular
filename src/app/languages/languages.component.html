@@ -1,0 +1,16 @@
+<h3>*****  Built-in directives section *****</h3>
+<ul *ngIf="languages">
+  <li *ngFor="let language of languages">
+    {{language}}
+  </li>
+</ul>
+
+<ng-container [ngSwitch]="languages[selectedLanguageIndex]">
+  <p *ngSwitchCase="'JavaScript'">JavaScript is the best</p>
+  <p *ngSwitchCase="'Java'">Java is the best</p>
+  <p *ngSwitchDefault>The default language is the best</p>
+</ng-container>
+
+<button (click)="onChangeLanguage()">Change Language</button>
+
+<h3>*****</h3>
