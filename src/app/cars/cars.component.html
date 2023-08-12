@@ -1,0 +1,17 @@
+<h3>***** HTTP Communication *****</h3>
+<button (click)="onAddCar(
+  {make: 'New',
+       model: 'Car',
+       year: 2011,
+       price: 40000,
+       color: 'black'})">
+  Add car
+</button>
+
+<ng-container *ngIf="cars$ | async as cars">
+  <ng-container *ngFor="let car of cars">
+    <app-car (click)="onCarClick(car)" [car]="car"></app-car>
+    <button (click)="onDeleteCar(car.id)">Delete</button>
+  </ng-container>
+</ng-container>
+<h3>*****</h3>
