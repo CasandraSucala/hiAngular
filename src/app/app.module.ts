@@ -13,6 +13,9 @@ import {ViewChildComponent} from './view-child/view-child.component';
 import {AngularComponent} from './angular/angular.component';
 import {LifecycleComponent} from './lifecycle/lifecycle.component';
 import {NotificationComponent} from "./notification/notification.component";
+import {CarsComponent} from './cars/cars.component';
+import {CarComponent} from "./cars/car/car.component";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -26,11 +29,14 @@ import {NotificationComponent} from "./notification/notification.component";
     ViewChildComponent,
     AngularComponent,
     LifecycleComponent,
-    NotificationComponent
+    NotificationComponent,
+    CarsComponent,
+    CarComponent,
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
