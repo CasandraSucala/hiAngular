@@ -39,6 +39,7 @@ export class CarEditComponent{
       year: '',
       price: ''
     });
+  }
 
   onCancel(): void {
     this.editCanceled.emit();

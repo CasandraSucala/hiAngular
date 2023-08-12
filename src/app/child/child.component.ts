@@ -9,7 +9,7 @@ export class ChildComponent {
   @Input() appTitle!: string;
   @Output() titleChanged: EventEmitter<string> = new EventEmitter();
 
-  onClick(): void {
-    this.titleChanged.emit('Hello world!');
+  onClick(newTitle: string): void {
+    this.titleChanged.emit(newTitle);
   }
 }
