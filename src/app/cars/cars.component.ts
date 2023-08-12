@@ -24,13 +24,17 @@ export class CarsComponent implements OnInit {
     this.cars$ = this.carService.getCars();
   }
 
-  onAddCar(car: Car): void {
+  private addCar(car: Car): void {
     this.carService.saveCar(car).subscribe(() => this.getCars());
   }
 
   updateCar(car: Car): void {
-    car.model = 'Updated';
-    this.carService.updateCar(car).subscribe();
+    this.carService.updateCar(car).subscribe(() => this.getCars());
+  }
+
+  onAddCar(): void {
+    this.isEditMode = true;
+    this.selectedCar = null;
   }
 
   onDeleteCar(id: number | undefined): void {
@@ -39,6 +43,25 @@ export class CarsComponent implements OnInit {
   }
 
   onCarClick(car: Car): void {
-    this.updateCar(car);
+    this.isEditMode = true;
+    this.selectedCar = {...car};
+  }
+
+  private closeEditMode(): void {
+    this.isEditMode = false;
+    this.selectedCar = null;
+  }
+
+  onSubmit(car: Car): void {
+    if (car.id) {
+      this.updateCar(car);
+    } else {
+      this.addCar(car);
+    }
+    this.closeEditMode();
+  }
+
+  onEditCanceled(): void {
+    this.closeEditMode();
   }
 }
