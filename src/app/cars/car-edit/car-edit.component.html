@@ -18,11 +18,12 @@
   <input formControlName="price">
   <hr>
 
-  <button (click)="onCancel()">
+  <button type="button" (click)="onCancel()">
     Cancel
   </button>
-  <button (click)="onSubmit()" [disabled]="formGroup.invalid">
+  <button type="button" (click)="onSubmit()" [disabled]="formGroup.invalid">
     Submit
   </button>
 </form>
 
+<h3>*****</h3>

@@ -7,7 +7,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
   templateUrl: './car-edit.component.html',
   styleUrls: ['./car-edit.component.scss']
 })
-export class CarEditComponent implements OnInit {
+export class CarEditComponent{
   @Input()
   public get car(): Car | null {
     return this._car;
@@ -18,17 +18,27 @@ export class CarEditComponent implements OnInit {
     // If another car is clicked, we need to refresh the view, we can do this by updating our form group
     // Note. We will also obtain the new car's value by implementing OnChanges interface,
     //    ngOnChanges -  is called after Angular sets or resets data-bound input properties.
-    this.setFormGroup();
+    if (car) {
+      this.formGroup.patchValue(this.car!);
+      return;
+    }
+    this.formGroup.reset();
   }
 
   _car!: Car | null;
 
   @Output() editCanceled: EventEmitter<void> = new EventEmitter<void>();
   @Output() submitted: EventEmitter<Car> = new EventEmitter<Car>();
-  formGroup!: FormGroup;
+  formGroup: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {
-  }
+    this.formGroup = this.formBuilder.group({
+      make: ['', Validators.required],
+      model: '',
+      color: '',
+      year: '',
+      price: ''
+    });
 
   onCancel(): void {
     this.editCanceled.emit();
@@ -36,19 +46,5 @@ export class CarEditComponent implements OnInit {
 
   onSubmit(): void {
     this.submitted.emit({...this.formGroup.value, id: this.car?.id});
-  }
-
-  ngOnInit(): void {
-    this.setFormGroup();
-  }
-
-  private setFormGroup(): void {
-    this.formGroup = this.formBuilder.group({
-      make: [this.car?.make ?? '', Validators.required],
-      model: this.car?.model ?? '',
-      color: this.car?.color ?? '',
-      year: this.car?.year ?? '',
-      price: this.car?.price ?? ''
-    });
   }
 }
