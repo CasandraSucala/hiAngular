@@ -32,7 +32,6 @@ export class CarEditComponent{
   formGroup: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {
-
     this.formGroup = this.formBuilder.group({
       make: ['', Validators.required],
       model: '',
@@ -40,8 +39,6 @@ export class CarEditComponent{
       year: '',
       price: ''
     });
-
-  }
 
   onCancel(): void {
     this.editCanceled.emit();
