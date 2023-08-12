@@ -3,7 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
 import {HelloComponent} from './hello/hello.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ChildComponent} from './child/child.component';
 import {UserComponent} from './user/user.component';
 import {NamePipe} from "./pipes/name.pipe";
@@ -16,6 +16,7 @@ import {NotificationComponent} from "./notification/notification.component";
 import {CarsComponent} from './cars/cars.component';
 import {CarComponent} from "./cars/car/car.component";
 import {HttpClientModule} from "@angular/common/http";
+import {CarEditComponent} from "./cars/car-edit/car-edit.component";
 
 @NgModule({
   declarations: [
@@ -32,11 +33,13 @@ import {HttpClientModule} from "@angular/common/http";
     NotificationComponent,
     CarsComponent,
     CarComponent,
+    CarEditComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

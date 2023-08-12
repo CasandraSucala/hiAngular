@@ -1,0 +1,28 @@
+<h3>***** Reactive forms *****</h3>
+<h5>{{car ? 'Update car' : 'Create car'}}</h5>
+
+<form [formGroup]="formGroup">
+  <label>Make: </label>
+  <input formControlName="make">
+  <hr>
+  <label>Model: </label>
+  <input formControlName="model">
+  <hr>
+  <label>Color: </label>
+  <input formControlName="color">
+  <hr>
+  <label>Year: </label>
+  <input formControlName="year">
+  <hr>
+  <label>Price: </label>
+  <input formControlName="price">
+  <hr>
+
+  <button (click)="onCancel()">
+    Cancel
+  </button>
+  <button (click)="onSubmit()" [disabled]="formGroup.invalid">
+    Submit
+  </button>
+</form>
+
