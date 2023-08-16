@@ -5,7 +5,7 @@
 <div class="view-edit-wrapper">
   <div *ngIf="cars$ | async as cars">
     <ng-container *ngFor="let car of cars">
-      <app-car (click)="onCarClick(car)" [car]="car"></app-car>
+      <app-car [routerLink]="'/http/' + car.id" [car]="car"></app-car>
       <button (click)="onDeleteCar(car.id)" [disabled]="selectedCar?.id == car?.id">Delete</button>
     </ng-container>
   </div>

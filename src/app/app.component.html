@@ -1,38 +1,11 @@
 <div class="title-wrapper">
-  <h1>{{title}}</h1>
+  <h1>{{title$ | async}}</h1>
 </div>
 
 <div class="content-wrapper">
-  <hr>
-  <!-- Data binding -->
-  <app-hello></app-hello>
-  <hr>
-  <!--  @Input & @Output-->
-  <app-child [appTitle]="title"
-             (titleChanged)="onTitleChanged($event)">
-  </app-child>
-  <hr>
-  <!-- Pipes -->
-  <app-user></app-user>
-  <hr>
-  <!-- Built-in directives -- Custom ageDirective used in userComponent-->
-  <app-languages></app-languages>
-  <hr>
-  <!-- Template variables & ViewChild decorator -->
-  <app-view-child></app-view-child>
-  <hr>
-  <!-- Content projection -->
-  <app-content-projection></app-content-projection>
-  <hr>
-  <!-- Component lifecycle -->
-  <app-lifecycle [title]="title"></app-lifecycle>
-  <hr>
-  <!-- Service & DI -->
-  <app-notification></app-notification>
-  <button (click)="onNotify()">Send notification from AppComponent</button>
-  <h3>*****</h3>
-  <hr>
-  <!-- HTTP Communication -->
-  <app-cars></app-cars>
-  <hr>
+  <app-navigator></app-navigator>
+  <div class="nav-content">
+    <router-outlet></router-outlet>
+  </div>
 </div>
+

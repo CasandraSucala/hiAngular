@@ -1,0 +1,6 @@
+<h3>***** Inter-Component Communication section *****</h3>
+
+<!--  @Input & @Output-->
+<app-child [appTitle]="(title$ | async) ?? ''"
+           (titleChanged)="onTitleChanged($event)">
+</app-child>

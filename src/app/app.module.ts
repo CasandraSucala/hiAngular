@@ -3,8 +3,8 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
 import {HelloComponent} from './hello/hello.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {ChildComponent} from './child/child.component';
+import {FormsModule} from "@angular/forms";
+import {ChildComponent} from './parent/child/child.component';
 import {UserComponent} from './user/user.component';
 import {NamePipe} from "./pipes/name.pipe";
 import {AgeDirective} from "./directives/age.directive";
@@ -12,12 +12,14 @@ import {LanguagesComponent} from './languages/languages.component';
 import {ViewChildComponent} from './view-child/view-child.component';
 import {AngularComponent} from './content-projection/angular/angular.component';
 import {LifecycleComponent} from './lifecycle/lifecycle.component';
-import {NotificationComponent} from "./notification/notification.component";
-import {CarsComponent} from './cars/cars.component';
-import {CarComponent} from "./cars/car/car.component";
-import {HttpClientModule} from "@angular/common/http";
-import {CarEditComponent} from "./cars/car-edit/car-edit.component";
-import { ContentProjectionComponent } from './content-projection/content-projection.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {ContentProjectionComponent} from './content-projection/content-projection.component';
+import {CarsModule} from "./cars/cars.module";
+import {AppRoutingModule} from "./app-routing.module";
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import {ParentComponent} from './parent/parent.component';
+import { NavigatorComponent } from './core/navigator/navigator.component';
+import {MyHttpInterceptor} from "./core/interceptors/http.interceptor";
 
 @NgModule({
   declarations: [
@@ -31,19 +33,22 @@ import { ContentProjectionComponent } from './content-projection/content-project
     ViewChildComponent,
     AngularComponent,
     LifecycleComponent,
-    NotificationComponent,
-    CarsComponent,
-    CarComponent,
-    CarEditComponent,
-    ContentProjectionComponent
+    ContentProjectionComponent,
+    PageNotFoundComponent,
+    ParentComponent,
+    NavigatorComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    AppRoutingModule,
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: MyHttpInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule {
