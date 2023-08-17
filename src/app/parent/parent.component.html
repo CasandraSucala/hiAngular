@@ -1,0 +1,4 @@
+<!--  @Input & @Output-->
+<app-child [appTitle]="(title$ | async) ?? ''"
+           (titleChanged)="onTitleChanged($event)">
+</app-child>

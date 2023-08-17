@@ -1,3 +1,20 @@
 {
-  "cars": []
+  "cars": [
+    {
+      "make": "Hoda",
+      "model": "Civic",
+      "color": "pink",
+      "year": "2012",
+      "price": "80000",
+      "id": 3
+    },
+    {
+      "make": "test",
+      "model": "test",
+      "color": null,
+      "year": null,
+      "price": null,
+      "id": 4
+    }
+  ]
 }

@@ -5,4 +5,10 @@
 
 .content-wrapper {
   padding: 5%;
+  display: flex;
+  gap: 10%;
+
+  .router-content {
+    flex: 1;
+  }
 }

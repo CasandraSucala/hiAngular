@@ -1,0 +1,6 @@
+<div class="nav-items">
+  <a *ngFor="let item of navItems"
+     [routerLink]="item.path">
+    {{item.title | titlecase}}
+  </a>
+</div>

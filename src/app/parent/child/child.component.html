@@ -1,7 +1,7 @@
 <h3>***** @Input & @Output section *****</h3>
 <p>Child component displays the app title: {{appTitle}}</p>
 
-<input #inputRef>
+<input #inputRef [value]="appTitle">
 <button (click)="onClick(inputRef.value)">Change the title</button>
 
 <h3>*****</h3>

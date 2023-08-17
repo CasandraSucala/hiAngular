@@ -3,9 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Car} from "./car.model";
 
-@Injectable({
-  providedIn: "root"
-})
+@Injectable()
 export class CarService {
   private readonly url = "http://localhost:3000/cars/";
 
@@ -14,6 +12,10 @@ export class CarService {
 
   public getCars(): Observable<Car[]> {
     return this.http.get<Car[]>(this.url);
+  }
+
+  public getCarById(id: number): Observable<Car> {
+    return this.http.get<Car>(this.url + `${id}`);
   }
 
   public saveCar(car: Car): Observable<unknown> {
