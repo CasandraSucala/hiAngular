@@ -50,11 +50,6 @@ export class CarsComponent implements OnInit {
     this.carService.deleteCar(id).subscribe(() => this.getCars());
   }
 
-  onCarClick(car: Car): void {
-    this.isEditMode = true;
-    this.selectedCar = {...car};
-  }
-
   private closeEditMode(): void {
     this.isEditMode = false;
     this.selectedCar = null;
