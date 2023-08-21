@@ -34,5 +34,9 @@ export const navItems: NavItem[] = [{
   {
     path: '/http',
     title: 'cars'
+  },
+  {
+    path: 'dialog',
+    title: 'Dialog'
   }
 ]

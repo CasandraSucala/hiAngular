@@ -1,31 +1,37 @@
 import {Component, OnInit} from '@angular/core';
 import {CarService} from "./car.service";
 import {Car} from "./car.model";
-import {Observable} from "rxjs";
-import {ActivatedRoute} from "@angular/router";
+import {filter, Observable, tap} from "rxjs";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-cars',
   templateUrl: './cars.component.html',
-  styleUrls: ['./cars.component.scss']
+  styleUrls: ['./cars.component.scss'],
 })
 export class CarsComponent implements OnInit {
   cars$!: Observable<Car[]>;
   isEditMode: boolean = false;
   selectedCar: Car | null = null;
 
-  constructor(private carService: CarService, private route: ActivatedRoute) {
+  constructor(private carService: CarService, private route: ActivatedRoute,
+              private router: Router) {
   }
 
+
+
   ngOnInit(): void {
-    const selectedCarId: number = this.route.snapshot.params['id'];
-    if(selectedCarId){
-      this.carService.getCarById(selectedCarId).subscribe((car) => {
-        this.selectedCar = car;
+    this.route.fragment.subscribe((fragment) => {
+      this.isEditMode = fragment === 'new';
+    });
+
+    this.route.data.pipe(filter((res) => !!res['car']))
+      .subscribe((data) => {
+        this.selectedCar = data['car'];
         this.isEditMode = true;
       })
-    }
-    this.cars$ = this.carService.getCars();
+
+    this.getCars();
   }
 
   private getCars(): void {
@@ -37,12 +43,11 @@ export class CarsComponent implements OnInit {
   }
 
   updateCar(car: Car): void {
-    this.carService.updateCar(car).subscribe(() => this.getCars());
+    this.carService.updateCar(car).subscribe();
   }
 
   onAddCar(): void {
-    this.isEditMode = true;
-    this.selectedCar = null;
+    this.router.navigate(['/http'], {fragment: 'new'});
   }
 
   onDeleteCar(id: number | undefined): void {
@@ -51,8 +56,7 @@ export class CarsComponent implements OnInit {
   }
 
   private closeEditMode(): void {
-    this.isEditMode = false;
-    this.selectedCar = null;
+    this.router.navigateByUrl('/http');
   }
 
   onSubmit(car: Car): void {
@@ -66,5 +70,9 @@ export class CarsComponent implements OnInit {
 
   onEditCanceled(): void {
     this.closeEditMode();
+  }
+
+  trackCar(i: number, item: Car) {
+    return item.id;
   }
 }

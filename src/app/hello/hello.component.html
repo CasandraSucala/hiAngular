@@ -9,20 +9,24 @@
 
   <!-- *Event binding* -->
   <div>
-    <button (click)="helloMessage = 'Hello'">Say Hello</button>
+    <button mat-flat-button color="primary" (click)="helloMessage = 'Hello'">Say Hello</button>
     =
-    <button (click)="onClick()">Say Hi</button>
+    <button mat-flat-button color="accent" (click)="onClick()">Say Hi</button>
   </div>
-  <hr>
+  <mat-divider></mat-divider>
   <!--********* 2-way binding *********-->
   <div>
-    <label>Your message (2-way binging the hard way): </label>
-    <input [value]="helloMessage" #input (keyup)="helloMessage = input.value">
+    <mat-form-field>
+      <mat-label>Your message (2-way binging the hard way):</mat-label>
+      <input matInput [value]="helloMessage" #input (keyup)="helloMessage = input.value">
+    </mat-form-field>
   </div>
   <div>
     <!-- Simplify 2-way binding using ngModel (don't forget to import FormsModule in the appModule) -->
-    <label>Your message (2-way binding using ngModel): </label>
-    <input [(ngModel)]="helloMessage">
+    <mat-form-field>
+    <mat-label>Your message (2-way binding using ngModel):</mat-label>
+    <input matInput [(ngModel)]="helloMessage">
+    </mat-form-field>
   </div>
 </div>
 <h3>*****</h3>

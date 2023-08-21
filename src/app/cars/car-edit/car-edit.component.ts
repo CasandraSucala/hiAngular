@@ -1,13 +1,14 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Car} from "../car.model";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {debounceTime, distinctUntilChanged, filter, first, take} from "rxjs";
 
 @Component({
   selector: 'app-car-edit',
   templateUrl: './car-edit.component.html',
   styleUrls: ['./car-edit.component.scss']
 })
-export class CarEditComponent{
+export class CarEditComponent {
   @Input()
   public get car(): Car | null {
     return this._car;
@@ -39,6 +40,15 @@ export class CarEditComponent{
       year: '',
       price: ''
     });
+
+    this.formGroup.controls['model'].valueChanges.pipe(
+      filter(res => !!res),
+      take(7),
+      debounceTime(2000),
+      distinctUntilChanged())
+      .subscribe((changes) => {
+        console.log(changes);
+      });
   }
 
   onCancel(): void {

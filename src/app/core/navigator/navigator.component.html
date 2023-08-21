@@ -1,6 +1,6 @@
-<div class="nav-items">
-  <a *ngFor="let item of navItems"
+<mat-nav-list>
+  <a mat-list-item *ngFor="let item of navItems"
      [routerLink]="item.path">
     {{item.title | titlecase}}
   </a>
-</div>
+</mat-nav-list>

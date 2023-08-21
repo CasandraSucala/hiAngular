@@ -9,6 +9,7 @@ import {LifecycleComponent} from "./lifecycle/lifecycle.component";
 import {PageNotFoundComponent} from "./core/page-not-found/page-not-found.component";
 import {ParentComponent} from "./parent/parent.component";
 import {canLoadCars} from "./core/guards/car.guards";
+import {DialogContainerComponent} from "./dialog-container/dialog-container.component";
 
 const routes: Routes = [
   {
@@ -45,6 +46,10 @@ const routes: Routes = [
   {
     path: 'lifecycle',
     component: LifecycleComponent,
+  },
+  {
+    path: 'dialog',
+    component: DialogContainerComponent
   },
   {
     path: 'http',

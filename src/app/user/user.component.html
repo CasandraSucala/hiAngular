@@ -1,18 +1,36 @@
 <h3>***** Pipes section *****</h3>
+<mat-list>
+  <div *ngIf="user.name as name">
+    <mat-list-item>
+      <span matListItemTitle>Last Name: </span>
+      <span matListItemLine>{{name.lastName | uppercase}}</span>
+    </mat-list-item>
 
-<div *ngIf="user.name as name">
-  <p>Last Name: {{name.lastName | uppercase}}</p>
-  <p>First Name: {{name.firstName | titlecase}}</p>
-  <!--  the order matters: -->
-  <p>Middle Name: {{name.middleName | lowercase | titlecase}}</p>
+    <mat-list-item>
+      <span matListItemTitle>First Name: </span>
+      <span matListItemLine> {{name.firstName | titlecase}}</span>
+    </mat-list-item>
 
-  <p>Name: {{name | name: 'long'}}</p>
-</div>
+    <!--  the order matters: -->
+    <mat-list-item>
+      <span matListItemTitle>Middle Name: </span>
+      <span matListItemLine>{{name.middleName | lowercase | titlecase}}</span>
+    </mat-list-item>
+    <mat-list-item>
+      <span matListItemTitle>Name: </span>
+      <span matListItemLine>{{name | name: 'long'}}</span>
+    </mat-list-item>
+  </div>
 
-<p>Birthday: {{user.birthday | date: 'short'}}</p>
-
+  <mat-list-item>
+    <span matListItemTitle>Birthday: </span>
+    <span matListItemLine>{{user.birthday | date: 'short'}}</span>
+  </mat-list-item>
+</mat-list>
 <!--The custom directive: AgeDirective in practice-->
-<label>Age: </label>
-<input age>
+<mat-form-field>
+  <mat-label>Age:</mat-label>
+  <input matInput age>
+</mat-form-field>
 
 <h3>*****</h3>

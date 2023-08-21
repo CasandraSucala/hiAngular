@@ -1,4 +1,12 @@
 .view-edit-wrapper{
   display: flex;
-  gap: 25%;
+
+  .view-wrapper {
+    min-width: 40%;
+    margin-right: 5%;
+  }
+
+  .edit-wrapper {
+    flex: 1;
+  }
 }

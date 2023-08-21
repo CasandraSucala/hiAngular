@@ -7,6 +7,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {CarRoutingModule} from "./car-routing.module";
 import {CarService} from "./car.service";
+import {MaterialModule} from "../material/material.module";
 
 @NgModule({
   declarations: [CarsComponent,
@@ -15,7 +16,9 @@ import {CarService} from "./car.service";
   imports: [CommonModule,
     ReactiveFormsModule,
     HttpClientModule,
-    CarRoutingModule],
+    CarRoutingModule,
+    MaterialModule
+  ],
   providers: [CarService]
 })
 export class CarsModule {

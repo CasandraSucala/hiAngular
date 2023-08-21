@@ -2,7 +2,8 @@
 <!-- Display the name using template variable -->
 <p>Hello, {{inputRef.value}}</p>
 
-<label>Name: </label>
-<input #inputRef [value]="name" (keyup)="name = inputRef.value">
-
+<mat-form-field>
+  <mat-label>Name: </mat-label>
+  <input matInput #inputRef [value]="name" (keyup)="name = inputRef.value">
+</mat-form-field>
 <h3>*****</h3>

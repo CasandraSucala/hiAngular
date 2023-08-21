@@ -13,11 +13,14 @@ import {ViewChildComponent} from './view-child/view-child.component';
 import {AngularComponent} from './content-projection/angular/angular.component';
 import {LifecycleComponent} from './lifecycle/lifecycle.component';
 import {ContentProjectionComponent} from './content-projection/content-projection.component';
-import {CarsModule} from "./cars/cars.module";
 import {AppRoutingModule} from "./app-routing.module";
 import {PageNotFoundComponent} from './core/page-not-found/page-not-found.component';
 import {ParentComponent} from './parent/parent.component';
 import { NavigatorComponent } from './core/navigator/navigator.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MaterialModule} from "./material/material.module";
+import { DialogContainerComponent } from './dialog-container/dialog-container.component';
+import { AlertComponent } from './dialog-container/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -34,12 +37,16 @@ import { NavigatorComponent } from './core/navigator/navigator.component';
     ContentProjectionComponent,
     PageNotFoundComponent,
     ParentComponent,
-    NavigatorComponent
+    NavigatorComponent,
+    DialogContainerComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
